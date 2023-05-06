@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+$font1: 'Open Sans', sans-serif;
+$font2: 'Montserrat', sans-serif;
+$font3: 'Questrial', sans-serif;
+$small: 14px;
+$normal: 16px;
+$medium: 18px;
+$main-color: #60d2f0;
+$secondary-color: #29b5e1;
+$light-bg:  rgba(255, 255, 255, 0.9);
+$dark-bg: rgb(29, 29, 29);
+$dark-bg2: rgb(48, 48, 48);
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin grey-font {
+  color: #fff;
+  opacity: .5;
+}
+
+@mixin tablet {
+  @media (min-width: 600px) {
+    @content
+  }
+}
+
+@mixin laptop {
+  @media (min-width: 1200px) {
+    @content
+  }
+}
+
+@mixin desktop-version {
+  @media (min-width: 1550px) {
+    @content
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  @include desktop-version {
+    @include center;
+
+    height: 100vh;
+  }
+
+  @include laptop {
+    @include center;
+
+    height: 100vh;
+  }
+
+  @include tablet {
+    @include center;
+  }
+
+  background: linear-gradient(0deg, $secondary-color 0%, rgb(255, 255, 255) 100%);
+  background-repeat: no-repeat;
+  font-family: $font2;
+  flex-direction: column;
+
+  #error {
+    @include desktop-version() {
+      font-size: 20px;
+    }
+
+    display: none;
+    padding: 10px;
+    text-align: center;
+    color: $secondary-color;
+    font-weight: 700;
+    height: 100vh;
+  }
+}

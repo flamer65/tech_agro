@@ -1,0 +1,51 @@
+{
+  "name": "weather-dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.20.2",
+    "@babel/preset-env": "^7.20.2",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^9.1.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.1",
+    "dotenv": "^16.0.3",
+    "dotenv-webpack": "^8.0.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^29.3.1",
+    "jest-environment-jsdom": "^29.3.1",
+    "jest-webpack": "^0.5.1",
+    "sass": "^1.56.1",
+    "sass-loader": "^13.1.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
+  },
+  "scripts": {
+    "test": "jest",
+    "watch": "jest --watch",
+    "build": "webpack",
+    "start": "webpack serve --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/virag-ky/Weather-Dashboard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/virag-ky/Weather-Dashboard/issues"
+  },
+  "homepage": "https://github.com/virag-ky/Weather-Dashboard#readme",
+  "dependencies": {
+    "cities.json": "^1.1.14",
+    "env-create": "^1.1.4",
+    "moment": "^2.29.4",
+    "os-browserify": "^0.3.0"
+  }
+}

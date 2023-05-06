@@ -1,0 +1,150 @@
+.dark {
+  background: $dark-bg;
+
+  header {
+
+    nav {
+      background: transparent;
+
+      #autocomplete {
+        background: $dark-bg2;
+
+        #search {
+          background: $dark-bg2;
+          color: #fff;
+
+          &::placeholder {
+           @include grey-font;
+          }
+        }
+      }
+
+      #todays-date {
+
+        #current-date {
+          color: $main-color;
+        }
+      }
+
+      #temp-conversion {
+        background: $dark-bg2;
+        color: $main-color;
+      }
+    }
+
+    #results {
+      background: $dark-bg2;
+      color: $main-color;
+
+      .selection {
+
+        &:hover {
+          background: $main-color;
+          color: $dark-bg;
+        }
+      }
+    }
+  }
+
+  main {
+    background: $dark-bg;
+
+    #main-section {
+
+      #current-section {
+
+        #location-container {
+
+          #location-info {
+            background: rgba(77, 77, 77, 0.5);
+            box-shadow: none;
+    
+            #location-image {
+    
+              #location {
+                color: $main-color
+              }
+            }
+    
+            #lat, #lon {
+              @include grey-font;
+            }
+          }
+        }
+
+        #current-info {
+
+          #current-temp {
+            color: $main-color;
+          }
+        }
+      }
+
+      #daily-container {
+
+      #daily-info {
+
+        div {
+          background: $dark-bg2;
+          
+          h3 {
+            color: $main-color;
+          }
+        }
+      }
+
+      #chart {
+
+        #myChart {
+          background: transparent;
+          box-shadow: 0 0 10px $dark-bg2;
+        }
+      }
+    }
+  }
+
+    .slider-wrapper {
+
+      .slides-container {
+
+        .slide {
+          background: $dark-bg2;
+
+          .italic {
+            color: rgb(180, 180, 180);
+          }
+        }
+      }
+    }
+  }
+
+  #today {   
+    background: $dark-bg2;
+
+    #todays-section {
+
+    #current-info {
+      color: $main-color;
+
+      #current-temp {
+        color: $main-color;
+      }
+
+      #description {
+        color: $main-color;
+      }
+    }
+  }
+
+    #extra-info {
+
+      div {
+        background: $dark-bg;
+
+        span {
+          color: $main-color;
+        }
+      }
+    }
+   }
+ }

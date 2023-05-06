@@ -1,0 +1,623 @@
+@import 'base';
+@import 'carousel';
+@import 'dark';
+
+header {
+  @include desktop-version {
+    padding: 25px 0 50px 0;
+    width: 85vw;
+    max-width: 1700px;
+  }
+
+  @include tablet {
+    width: 85vw;
+  }
+
+  @include laptop {
+    width: 100%;
+    padding: 25px 15px 50px 15px;
+  }
+
+  padding: 20px 15px 0 15px;
+
+  nav {
+    @include space-between;
+    @include desktop-version {
+      height: 35px;
+    }
+
+    @include laptop {
+      height: 35px;
+    }
+
+    align-items:unset;
+    width: 100%;
+    background: $secondary-color;
+    border-radius: 30px;
+    padding: 3px;
+
+    #autocomplete {
+      @include space-between;
+
+      @include laptop {
+        max-width: 515px;
+      }
+
+      @include desktop-version {
+        max-width: 715px;
+      }
+
+      width: 65%;
+      background: #fff;
+      border-radius: 25px;
+
+      #search {
+        width: 100%;
+        height: 100%;
+        font-size: 15px;
+        border-radius: 25px;
+        border: none;
+        padding: 0 8px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      #search-icon {
+        width: 30px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    #todays-date {
+      @include center;
+      @include desktop-version {
+        display: flex;
+      }
+
+      @include laptop {
+        display: flex;
+      }
+
+      display: none;
+      justify-content: unset;
+      height: 100%;
+      gap: 5px;
+      padding: 5px 8px;
+      margin: 0 auto;
+
+      #calendar-icon {
+        width: 28px;
+        background: #fff;
+        background: transparent;
+      }
+
+      #current-date {
+        font-size: $normal;
+        font-family: $font3;
+        letter-spacing: 1px;
+        color: #fff;
+      }
+    }
+
+    #temp-conversion {
+      @include center;
+      @include desktop-version {
+        margin-left: auto;
+        margin-right: 10px;
+      }
+
+      @include laptop {
+        margin-left: auto;
+        margin-right: 10px;
+      }
+
+      background: #fff;
+      font-weight: 700;
+      width: 45px;
+      border-radius: 50px;
+      color: $secondary-color;
+      font-family: $font3;
+      cursor: pointer;
+    }
+
+    button {
+      @include center;
+
+      width: 45px;
+      height: 30px;
+      position: relative;
+      background: #fff;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+
+      #toggle-icon {
+        position: absolute;
+        width: 40%;
+        height: auto;
+      }
+    }
+  }
+
+  #results {
+    @include tablet {
+      width: 40%;
+      height: 300px;
+      font-size: $medium;
+    }
+
+    display: none;
+    height: 250px;
+    width: 250px;
+    font-size: $small;
+    flex-direction: column;
+    background: #fff;
+    color: $secondary-color;
+    overflow: auto;
+    position: absolute;
+    top: 9%;
+    box-shadow: 0 0 10px rgb(204, 204, 204);
+    z-index: 1;
+    padding: 20px 10px;
+
+    .selection {
+      margin-bottom: 5px;
+      padding: 10px;
+      border-radius: 25px;
+
+      &:hover {
+        cursor: pointer;
+        background: $secondary-color;
+        color: #fff;
+      }
+    }
+  }
+}
+
+main {
+  @include desktop-version {
+    @include space-between;
+
+    width: 85vw;
+    max-width: 1700px;
+    padding: 30px 0;
+    gap: 25px;
+    flex-direction: row;
+  }
+
+
+  @include tablet {
+    width: 85vw;
+  }
+
+  @include laptop {
+    @include space-between;
+
+    flex-direction: row;
+    width: 100%;
+    gap: 25px;
+    padding: 0 15px 30px 15px;
+  }
+
+  background: transparent;
+  padding: 0 15px;
+  height: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  -webkit-box-direction:normal;
+
+  #main-section {
+    @include desktop-version {
+      @include space-between;
+
+      max-width: 1150px;
+      height: 100%;
+      flex-direction: column;
+      align-items: unset;
+    }
+
+    @include laptop {
+      @include space-between;
+
+      flex-direction: column;
+      width: 75%;
+      align-items: unset;
+    }
+
+    #current-section {
+      @include desktop-version {
+        @include space-between;
+        padding: 0;
+        height: 160px;
+        gap: 50px;
+      }
+
+      @include laptop {
+        @include space-between;
+        padding: 0;
+        height: 160px;
+        gap: 50px;
+      }
+
+      gap: 10px;
+      border-radius: 25px;
+      margin-bottom: 15px;
+      padding: 10px 0;
+
+      #location-container {
+        @include space-between;
+
+        @include laptop {
+          min-width: 515px;
+          max-width: 515px;
+          height: 100%;
+          margin: 55px 0;
+        }
+
+        @include desktop-version {
+          min-width: 715px;
+          max-width: 715px;
+          height: 100%;
+          margin: 55px 0;
+        }
+    
+        flex-direction: column;
+        background: url('../../icons/map.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: right;
+        margin: 10px 0;
+    
+        #location-info {
+          @include desktop-version {
+            height: 100%;
+            justify-content: space-around;
+          }
+
+          @include laptop {
+            height: 100%;
+            justify-content: space-around;
+          }
+        
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          width: 100%;
+          padding: 15px;
+          border-radius: 25px;
+          background: rgba(255, 255, 255, 0.8);
+    
+          #location-image {
+            @include center;
+    
+            justify-content: unset;
+    
+            #location-icon {
+              @include desktop-version {
+                width: 25px;
+              }
+
+              width: 20px;
+              margin-right: 5px;
+            }
+    
+            #location {
+              @include desktop-version {
+                font-size: $normal;
+              }
+    
+              font-weight: 700;
+              font-size: $small;
+              color: $secondary-color;
+            }
+          }
+    
+          #lat,
+          #lon {
+            @include desktop-version {
+              font-size: $normal;
+            }
+    
+            font-size: $small;
+            font-family: $font3;
+            letter-spacing: 0.5px;
+            color: rgb(131, 130, 130);
+          }
+        }
+      }
+
+      #time {
+        @include center;
+
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+
+        #current-time {
+          @include desktop-version {
+            font-size: 4rem;
+            padding: 0;
+          }
+
+          font-size: 3rem;
+          padding: 20px 0;
+          font-weight: 700;
+          font-family: $font1;
+          color: $secondary-color;
+        }
+
+        #current-day {
+          @include desktop-version {
+            font-size: 20px;
+          }
+  
+          font-size: 18px;
+          margin-bottom: 10px;
+          font-weight: 700;
+          color: $secondary-color;
+        }
+
+        #todays-weather {
+          @include desktop-version {
+            display: none;
+          }
+
+          display: block;
+
+        }
+      }
+  }
+
+  #daily-container {
+    @include desktop-version {
+      @include space-between;
+
+      flex-direction: row-reverse;
+      align-items: flex-end;
+      gap: 25px;
+    }
+
+    @include laptop {
+      @include space-between;
+
+      flex-direction: row-reverse;
+      align-items: flex-end;
+      justify-content: flex-end;
+      gap: 25px;
+    }
+
+    #daily-info {
+      @include desktop-version {
+        height: 355px;
+        column-gap: 8px;
+        row-gap: 8px;
+      }
+
+      @include laptop {
+        height: 355px;
+        column-gap: 8px;
+        row-gap: 8px;
+      }
+
+      width: 100%;
+      height: 370px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      row-gap: 4px;
+      column-gap: 4px;
+
+      div {
+        @include center;
+        @include desktop-version {
+          padding-bottom: 5px;
+        }
+       
+        border-radius: 25px;
+        background: $light-bg;
+        flex-direction: column;
+        font-family: $font1;
+        text-align: center;
+        color: $secondary-color;
+
+        .daily-icon {
+          @include desktop-version {
+            margin-bottom: 5px;
+          }
+
+          width: 60px;
+          margin-bottom: 15px;
+        }
+
+        #air-icon {
+          @include desktop-version {
+            padding-top: 10px;
+          }
+
+          width: 50px;
+        }
+
+        span {
+          width: 100%;
+          font-size: $small;
+        }
+
+        h3 {
+          @include desktop-version {
+            font-size: $normal;
+          }
+
+          font-size: $small;
+          width: 100%;
+          margin-bottom: 5px;
+
+          span {
+            padding-left: 0;
+          }
+        }
+       
+      }
+    }
+
+    #chart {
+      @include laptop {
+        min-width: 515px;
+      }
+
+      @include desktop-version {
+        min-width: 715px;
+      }
+
+      position: relative;
+      width: 100%;
+
+      #myChart {
+        width: auto;
+        border-radius: 20px;
+        margin-top: 20px;
+        padding: 3px;
+        background: $light-bg;
+      }
+    }
+   }
+  }
+
+  #today {
+    @include desktop-version {
+      @include space-between;
+
+      gap: 20px;
+      padding: 50px 15px 0 15px;
+      background: rgba(255, 255, 255, 0.5);
+
+      height: 100%;
+    }
+
+    @include laptop {
+      @include space-between;
+
+      gap: 20px;
+      padding: 50px 15px 0 15px;
+      background: rgba(255, 255, 255, 0.5);
+      height: 100%;
+    }
+
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    padding: 25px 10px;
+    margin-top: 25px;
+    border-radius: 25px;
+
+    #todays-section {
+        @include center;
+        @include desktop-version {
+          margin-bottom: 0;
+        }
+
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 40px;
+      }
+
+    #todays-temp {
+
+      #current-weather-icon {
+        @include desktop-version {
+          width: 250px;
+        }
+          width: 180px;
+       }
+      }
+
+    #current-info {
+      @include center;
+
+      font-family: $font3;
+      align-items: center;
+      flex-direction: column;
+      color: $secondary-color;
+
+      #current-temp {
+        @include desktop-version {
+          font-size: 50px;
+        }
+
+        font-family: $font1;
+        font-size: 30px;
+        margin: 10px 0;
+        color: $secondary-color;
+      }
+
+      #description {
+        @include desktop-version {
+          font-size: 20px;
+        }
+
+        font-size: $medium;
+        font-weight: 700;
+        color: $secondary-color;
+      }
+    }
+
+    #extra-info {
+      @include center;
+      @include desktop-version {
+        gap: 15px;
+      }
+
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      height: 100%;
+
+      div {
+        @include center;
+        @include desktop-version {
+          height: 50px;
+        }
+
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        height: 42px;
+        border-radius: 25px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 0 15px;
+
+        img {
+          @include desktop-version {
+            width: 30px;
+          }
+
+          width: 25px;
+        }
+
+        #max-temp-icon, #min-temp-icon {
+          @include desktop-version {
+            width: 25px;
+          }
+
+          width: 20px;
+        }
+
+        span {
+          @include desktop-version {
+            font-size: $normal;
+          }
+
+          color: $secondary-color;
+          font-weight: 700;
+          margin: 0 auto;
+          font-size: $small;
+        }
+      }
+    }
+   }
+  }
