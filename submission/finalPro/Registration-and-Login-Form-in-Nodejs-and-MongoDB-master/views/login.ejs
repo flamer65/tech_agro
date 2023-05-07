@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="./css/main.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			$( "#form" ).submit(function(event) {
+				event.preventDefault();
+
+				$.ajax({
+					type: 'POST',
+					url: '/login',
+					data: $('#form').serialize(),
+					dataType: "json",
+					success: function(response){
+						//alert("a");
+						//console.log(response.Success);
+						$('#form')[0].reset();
+
+						document.getElementById("check").innerHTML=response.Success;
+         					//ADD THIS CODE
+         					setTimeout(function(){
+         						document.getElementById("check").innerHTML="";
+         					},3000);
+         					if (response.Success=="Success!") {
+         						document.getElementById("aa").click();
+         					};
+         				},
+         				error: function() {
+         				}
+         			})
+			});
+
+		});
+	</script>
+</head>
+<body>
+	<header>
+        <nav id="navbar" class="navbar">
+            <span>Smart Agronet</span>
+            <ul>
+              <li><a class="nav-link scrollto active" href="index.html">Home</a></li>
+              <li><a class="nav-link scrollto" href="login.html">Login</a></li>
+            </ul>
+          </nav>
+    </header>
+	<div>
+		<div>
+			
+		</div>
+		<div class="form-group">
+			<form id="form" method="post" style="margin-top: 40px; padding: 50px 40px;" >
+				<h2 style="font-size: 40px;">Login</h2><br>
+				<br>
+				<input type="text" name="email" placeholder="E-mail" required="" class="form-control"><br/><br>
+				<input type="password" name="password" placeholder="Password" required="" class="form-control"><br/><br>
+				<input type="submit" value="Login" class="btn btn-success">
+				<br> <br>
+				<div><h2>Do you forgot password?</h2><a href="/forgetpass"><h2 id="link">Forget Password</h2></a>
+				<div><h2>Create a new Account?</h2><a href="./register"><h2 id="link">Register</h2></a>
+			</form>
+		</div>
+		<div class="mssg bg-danger">
+			<span id="check" ></span>
+		</div>
+		<div id="LangTable"><a href="/profile" id="aa"></a>
+	</div>
+</body>
+</html>
