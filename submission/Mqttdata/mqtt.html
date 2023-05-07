@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>MQTT Sensor Data</title>
+</head>
+
+<body>
+    <h1> Sensor Data with Chart.js</h1>
+    <input id="broker" type="text" placeholder="Broker Address">
+    <input id="port" type="number" placeholder="Port">
+    <input id="tempTopic" type="text" placeholder="Temperature Topic">
+    <input id="soilTopic" type="text" placeholder="Soil Moisture Topic">
+    <input id="phTopic" type="text" placeholder="pH Topic">
+    <button onclick="connect()">Connect</button>
+    <div class="card" style="width: 50rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <canvas id="tempChart"></canvas>
+        </div>
+    </div>
+    <div class="card" style="width: 50rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <canvas id="soilChart"></canvas>
+
+        </div>
+    </div>
+    <div class="card" style="width: 50rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <canvas id="phChart"></canvas>
+
+        </div>
+    </div>
+    <!-- <div>
+        <canvas id="tempChart"></canvas>
+        <canvas id="soilChart"></canvas>
+        <canvas id="phChart"></canvas>
+    </div> -->
+    <script src="mqtt_chart_app.js"></script>
+</body>
+
+</html>
